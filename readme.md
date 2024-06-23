@@ -8,7 +8,10 @@ install django
 
 `pip install openai`
 
-Get your from OpenAPI (No more free tier T_T)
-
 `python -m pip install django-environ`
 
+`python -m pip install django-cors-headers`
+
+Get your from OpenAPI (No more free tier T_T)
+
+copy .env_example to .env then define your OPENAI_API_KEY

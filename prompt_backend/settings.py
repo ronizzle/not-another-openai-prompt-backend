@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-)s7$0$pxz*%3b1-4v*$-^xpw^end@ym=d5a_+s^#*us-z_97&%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = []
 
 
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +39,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'prompt_backend.urls'
@@ -114,6 +117,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ASGI_APPLICATION = 'prompt_backend.asgi.application'
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env()
